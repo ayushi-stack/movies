@@ -31,12 +31,17 @@ $movies-light-theme: mat.define-light-theme(
 $movies-dark-theme: mat.define-dark-theme(
   (
     color: (
-      primary: $movies-primary,
-      accent: $movies-accent,
+      primary: $movies-accent,
+      accent: $movies-primary,
       warn: $movies-warn,
     ),
   )
 );
+
+/* .bg-primary {
+  background-color: mat-color($movies-primary);
+} */
+
 .light-theme {
   @include mat.all-component-themes($movies-light-theme);
 }
@@ -57,5 +62,5 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  font-family: 'Raleway', 'Helvetica Neue', sans-serif;
 }

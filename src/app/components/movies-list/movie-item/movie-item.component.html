@@ -2,21 +2,17 @@
   <div class="grid-item">
     <div class="movie-container">
       <div (click)="showModal(movie)"><img [src]="imageToShow" /></div>
-
+      <hr />
       <div class="movie title">{{ movie.title }}</div>
-      <div
-        class="movie description"
-        style="width: 100px; height: 100px;"
-        ellipsis
-      >
+      <div class="movie-description" ellipsis>
         {{ movie.description }}
       </div>
 
-      <div style="display: inline-flex; box-shadow: 0px 2px 8px grey;">
-        <ng-container *ngFor="let g of movie.genres">
-          <div class="movie genres">{{ g }}</div>
-        </ng-container>
-      </div>
+      <mat-chip-list aria-label="Fish selection">
+        <mat-chip color="accent" *ngFor="let genre of movie.genres">
+          {{ genre }}
+        </mat-chip>
+      </mat-chip-list>
     </div>
   </div>
 </div>

@@ -19,8 +19,6 @@ export class MovieItemComponent implements OnInit {
     let imageUrl = `https://ui-avatars.com/api/?name=${this.movie?.title}&background=random&size=256&rounded=true`
     this.moviesService.getAvatar(imageUrl).subscribe((data) => {
       this.imageToShow = data.type
-
-      console.log(data)
       let reader = new FileReader()
       reader.addEventListener(
         'load',

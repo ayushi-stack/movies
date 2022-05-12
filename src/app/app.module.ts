@@ -19,6 +19,8 @@ import { FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http'
 import { MoviesListComponent } from './components/movies-list/movies-list.component'
 import { MovieItemComponent } from './components/movies-list/movie-item/movie-item.component'
+import { MatChipsModule } from '@angular/material/chips'
+import { NavBarComponent } from './components/nav-bar/nav-bar.component'
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { MovieItemComponent } from './components/movies-list/movie-item/movie-it
     LoginComponent,
     MoviesListComponent,
     MovieItemComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +44,7 @@ import { MovieItemComponent } from './components/movies-list/movie-item/movie-it
     MatIconModule,
     MatButtonModule,
     EllipsisModule,
+    MatChipsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

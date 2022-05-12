@@ -2,10 +2,6 @@
   class="container"
   [ngClass]="theme === 'light' ? 'light-theme ' : 'dark-theme'"
 >
-  <!-- <mat-card class="dark-theme">
-    <mat-card-content>
-      <mat-slide-toggle (click)="toggleMode()">Slide Me</mat-slide-toggle>
-    </mat-card-content>
-  </mat-card> -->
+  <app-nav-bar (onToggle)="toggleClicked($event)"></app-nav-bar>
   <router-outlet></router-outlet>
 </div>

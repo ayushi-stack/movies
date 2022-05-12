@@ -10,10 +10,10 @@ import { MovieItemComponent } from './movie-item/movie-item.component'
 export class MoviesListComponent implements OnInit {
   movies: Movie[] = [
     {
-      title: 'jab tak hai jaan',
+      title: 'Jab tak hai jaan',
       description:
         'nice movie deer hsdcbamsdcbamsdcmsdbvsdfvbsfjvbskfdjvbsdkjv sdj bsdjvsdjb sdjb sjdbamscbamscb amscbamscbamcbasjcbasjcbahmks',
-      genres: ['romantic', 'comedy', 'horror'],
+      genres: ['romantic', 'comedy'],
       uuid: 1,
     },
     {

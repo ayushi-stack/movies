@@ -1,49 +1,49 @@
-/* .movie-card {
-  border: 2px solid black;
-  width: 20rem;
-  height: 20rem;
-  padding: 20px;
-  margin: 20px;
-  position: relative;
-  align-items: center;
-  margin: 10rem;
-  box-shadow: 0px 11px 22px grey;
-  .movie {
-    text-align: center;
-    padding: 30px;
-    font-size: 30px;
-    .description {
-      color: aqua;
-    }
-  }
-
-} */
-
 .movie {
   text-align: center;
-  padding: 30px;
+  padding: 5px;
   font-size: 16px;
 }
 .grid-item {
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 60px;
-  font-size: 30px;
-  background-color: lightgray;
   text-align: center;
 }
 
+hr {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  border: 0;
+  height: 1px;
+  background: #ccc;
+}
 .movie-container {
-  background-color: white;
-  box-shadow: 10px 20px 57px grey;
+  box-shadow: 0 5px 10px rgb(0 0 0 / 20%);
+  padding: 2rem 1rem;
+  border-radius: 2rem;
 }
 .title {
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 40px;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  word-spacing: 2px;
 }
 .description {
   color: grey;
 }
+
+.movie-description {
+  height: 7rem;
+  text-align: left;
+  margin-top: 1rem;
+}
+
 .hidden {
   opacity: 0;
   visibility: hidden;
+}
+.mat-chip {
+  min-width: 5rem;
+  justify-content: center;
+}
+
+::ng-deep .mat-chip.mat-standard-chip {
+  background-color: goldenrod !important;
+  text-transform: capitalize;
 }
