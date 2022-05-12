@@ -7,7 +7,13 @@
       <mat-slide-toggle (click)="toggleMode()"></mat-slide-toggle>
     </div>
     <div class="search-container">
-      <input type="search" matInput placeholder="Search" name="search" />
+      <input
+        (keyup)="searchKeyChanged($event)"
+        type="search"
+        matInput
+        placeholder="Search"
+        name="search"
+      />
       <button matSuffix mat-button><mat-icon>search</mat-icon></button>
     </div>
   </div>

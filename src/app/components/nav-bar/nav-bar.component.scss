@@ -16,7 +16,8 @@
 
 input {
   border: 0;
-  &:focus {
+  &:focus-visible {
     border: 0;
+    outline: 0;
   }
 }

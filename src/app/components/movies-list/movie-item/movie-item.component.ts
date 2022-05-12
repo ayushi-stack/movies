@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core'
+import { Component, Input, OnDestroy, OnInit } from '@angular/core'
 import { Movie } from 'src/app/model/movies'
+import { MessageService } from 'src/services/message.service'
 import { MoviesService } from 'src/services/movie.service'
 
 @Component({
@@ -12,10 +13,16 @@ export class MovieItemComponent implements OnInit {
   modalMovie: Movie | undefined
   imageToShow: any
 
-  constructor(private moviesService: MoviesService) {
-    console.log(this.movie?.title)
-  }
+  constructor(
+    private moviesService: MoviesService,
+    private messageService: MessageService,
+  ) {}
+
   ngOnInit(): void {
+    this.getAvatars()
+  }
+
+  getAvatars() {
     let imageUrl = `https://ui-avatars.com/api/?name=${this.movie?.title}&background=random&size=256&rounded=true`
     this.moviesService.getAvatar(imageUrl).subscribe((data) => {
       this.imageToShow = data.type
@@ -30,6 +37,7 @@ export class MovieItemComponent implements OnInit {
       reader.readAsDataURL(data)
     })
   }
+
   showModal(movie: any) {
     this.modalMovie = movie
     console.log('Clocked', this.modalMovie)

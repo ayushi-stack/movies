@@ -1,5 +1,5 @@
 <div class="grid-container">
-  <div *ngFor="let movie of movies">
+  <div *ngFor="let movie of movies | filter: searchKey">
     <app-movie-item [movie]="movie"></app-movie-item>
   </div>
 </div>

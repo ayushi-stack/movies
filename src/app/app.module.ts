@@ -21,6 +21,7 @@ import { MoviesListComponent } from './components/movies-list/movies-list.compon
 import { MovieItemComponent } from './components/movies-list/movie-item/movie-item.component'
 import { MatChipsModule } from '@angular/material/chips'
 import { NavBarComponent } from './components/nav-bar/nav-bar.component'
+import { FilterPipe } from './pipes/filter.pipe'
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component'
     MoviesListComponent,
     MovieItemComponent,
     NavBarComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { Movie } from 'src/app/model/movies'
+import { MessageService } from 'src/services/message.service'
 import { MoviesService } from 'src/services/movie.service'
 import { MovieItemComponent } from './movie-item/movie-item.component'
 @Component({
@@ -8,6 +9,7 @@ import { MovieItemComponent } from './movie-item/movie-item.component'
   styleUrls: ['./movies-list.component.scss'],
 })
 export class MoviesListComponent implements OnInit {
+  searchKey: string = ''
   movies: Movie[] = [
     {
       title: 'Jab tak hai jaan',
@@ -54,12 +56,18 @@ export class MoviesListComponent implements OnInit {
     },
   ]
 
-  constructor(private moviesService: MoviesService) {}
+  constructor(
+    private moviesService: MoviesService,
+    private messageService: MessageService,
+  ) {}
 
   ngOnInit(): void {
     console.log('Movies called')
     this.moviesService.getMovies().subscribe((data) => {
       console.log('Data', data)
+    })
+    this.messageService.getData().subscribe((response: any) => {
+      this.searchKey = response.data
     })
   }
 }
