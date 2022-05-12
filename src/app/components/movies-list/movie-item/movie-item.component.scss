@@ -1,0 +1,49 @@
+/* .movie-card {
+  border: 2px solid black;
+  width: 20rem;
+  height: 20rem;
+  padding: 20px;
+  margin: 20px;
+  position: relative;
+  align-items: center;
+  margin: 10rem;
+  box-shadow: 0px 11px 22px grey;
+  .movie {
+    text-align: center;
+    padding: 30px;
+    font-size: 30px;
+    .description {
+      color: aqua;
+    }
+  }
+
+} */
+
+.movie {
+  text-align: center;
+  padding: 30px;
+  font-size: 16px;
+}
+.grid-item {
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 60px;
+  font-size: 30px;
+  background-color: lightgray;
+  text-align: center;
+}
+
+.movie-container {
+  background-color: white;
+  box-shadow: 10px 20px 57px grey;
+}
+.title {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 40px;
+}
+.description {
+  color: grey;
+}
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}

@@ -1,0 +1,22 @@
+<div class="grid-container" *ngIf="movie">
+  <div class="grid-item">
+    <div class="movie-container">
+      <div (click)="showModal(movie)"><img [src]="imageToShow" /></div>
+
+      <div class="movie title">{{ movie.title }}</div>
+      <div
+        class="movie description"
+        style="width: 100px; height: 100px;"
+        ellipsis
+      >
+        {{ movie.description }}
+      </div>
+
+      <div style="display: inline-flex; box-shadow: 0px 2px 8px grey;">
+        <ng-container *ngFor="let g of movie.genres">
+          <div class="movie genres">{{ g }}</div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
