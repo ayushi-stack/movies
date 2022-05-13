@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core'
-import { Movie } from 'src/app/model/movies'
+import { PageEvent } from '@angular/material/paginator'
 import { MessageService } from 'src/services/message.service'
 import { MoviesService } from 'src/services/movie.service'
-import { MovieItemComponent } from './movie-item/movie-item.component'
+
 @Component({
   selector: 'app-movies-list',
   templateUrl: './movies-list.component.html',
@@ -10,64 +10,42 @@ import { MovieItemComponent } from './movie-item/movie-item.component'
 })
 export class MoviesListComponent implements OnInit {
   searchKey: string = ''
-  movies: Movie[] = [
-    {
-      title: 'Jab tak hai jaan',
-      description:
-        'nice movie deer hsdcbamsdcbamsdcmsdbvsdfvbsfjvbskfdjvbsdkjv sdj bsdjvsdjb sdjb sjdbamscbamscb amscbamscbamcbasjcbasjcbahmks',
-      genres: ['romantic', 'comedy'],
-      uuid: 1,
-    },
-    {
-      title: 'Veer Zaara',
-      description: 'Cry movie deer',
-      genres: ['romantic', 'comedy', 'horror'],
-      uuid: 2,
-    },
-    {
-      title: 'Manmarziyan',
-      description: 'Cry movie deer',
-      genres: ['romantic', 'comedy', 'horror'],
-      uuid: 3,
-    },
-    {
-      title: 'La La Land',
-      description: 'Cry movie deer',
-      genres: ['romantic', 'comedy', 'horror'],
-      uuid: 4,
-    },
-    {
-      title: 'Veer Zaara',
-      description: 'Cry movie deer',
-      genres: ['romantic', 'comedy', 'horror'],
-      uuid: 5,
-    },
-    {
-      title: 'Veer Zaara',
-      description: 'Cry movie deer',
-      genres: ['romantic', 'comedy', 'horror'],
-      uuid: 6,
-    },
-    {
-      title: 'Veer Zaara',
-      description: 'Cry movie deer',
-      genres: ['romantic', 'comedy', 'horror'],
-      uuid: 7,
-    },
-  ]
-
+  movies: any
+  error: boolean = false
+  loading: boolean = false
+  length = 100
+  pageSize = 10
+  pageSizeOptions: number[] = [5, 10, 25, 100]
+  pageEvent: unknown
   constructor(
     private moviesService: MoviesService,
     private messageService: MessageService,
   ) {}
 
   ngOnInit(): void {
-    console.log('Movies called')
-    this.moviesService.getMovies().subscribe((data) => {
-      console.log('Data', data)
-    })
+    this.getMovies()
     this.messageService.getData().subscribe((response: any) => {
-      this.searchKey = response.data
+      if (response.type === 'search') {
+        this.searchKey = response.data
+      }
+    })
+  }
+
+  refresh() {
+    this.getMovies()
+  }
+
+  getMovies() {
+    this.loading = true
+    this.error = false
+    this.moviesService.getMovies().subscribe((response) => {
+      if (response && response.data && response.data.length >= 0) {
+        this.movies = response.data
+        this.error = false
+      } else {
+        this.error = true
+      }
+      this.loading = false
     })
   }
 }

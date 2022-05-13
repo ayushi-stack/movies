@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+::ng-deep .mat-dialog-container {
+  background: white !important;
+  padding: 2rem !important;
+}
+
+hr {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  border: 0;
+  height: 1px;
+  width: 100%;
+  background: #ccc;
+}

@@ -1,65 +1,78 @@
 <div class="container">
-  <mat-grid-list cols="2" rowHeight="1:1">
-    <mat-grid-tile>
-      <img class="banner" src="../../../assets/images/lights2.png" />
-    </mat-grid-tile>
-    <mat-grid-tile>
-      <form #loginform="ngForm" (ngSubmit)="onSubmit(loginform)" class="form">
-        <div class="form-wrapper">
-          <mat-form-field appearance="fill">
-            <mat-label>Enter your email</mat-label>
-            <input
-              type="text"
-              [(ngModel)]="username"
-              name="username"
-              matInput
-              placeholder="pat@example.com"
-              required
-            />
-          </mat-form-field>
-        </div>
+  <div class="tile-1">
+    <div>
+      <h1 class="pagetitle">Welcome To Theatre</h1>
+    </div>
+    <div class="subheader">
+      <img class="banner" src="../../../assets/images/bg-2.png" />
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat
+        explicabo voluptas minus hic asperiores aspernatur vitae laudantium,
+        perferendis incidunt corporis mollitia animi alias distinctio harum
+        temporibus suscipit nihil consectetur labore.
+      </p>
+    </div>
+  </div>
 
-        <div class="form-wrapper">
-          <mat-form-field appearance="fill">
-            <mat-label>Enter your password</mat-label>
-            <input
-              [(ngModel)]="password"
-              name="password"
-              matInput
-              [type]="hidePasswordField ? 'password' : 'text'"
-              required
-              minlength="3"
-              maxlength="50"
-            />
-            <button
-              mat-icon-button
-              matSuffix
-              (click)="hidePasswordField = !hidePasswordField"
-              [attr.aria-label]="'Hide password'"
-              [attr.aria-pressed]="hidePasswordField"
-            >
-              <mat-icon>
-                {{ hidePasswordField ? 'visibility_off' : 'visibility' }}
-              </mat-icon>
-            </button>
-          </mat-form-field>
-        </div>
+  <div class="tile-2">
+    <form #loginform="ngForm" (ngSubmit)="onSubmit(loginform)" class="form">
+      <h1>Sign In Here</h1>
+      <hr />
+      <div class="form-wrapper">
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your email</mat-label>
+          <input
+            type="text"
+            [(ngModel)]="username"
+            name="username"
+            matInput
+            placeholder="pat@example.com"
+            required
+          />
+        </mat-form-field>
+      </div>
 
-        <button
-          type="submit"
-          [ngStyle]="
-            !loginform.valid
-              ? { 'background-color': 'grey' }
-              : { 'background-color': 'dodgerblue' }
-          "
-          [disabled]="!loginform.valid"
-          mat-button
-          (click)="login()"
-        >
-          Log In
-        </button>
-        <div class="no-user" *ngIf="loginFailedMessage">User Doesn't Exist</div>
-      </form>
-    </mat-grid-tile>
-  </mat-grid-list>
+      <div class="form-wrapper">
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your password</mat-label>
+          <input
+            [(ngModel)]="password"
+            name="password"
+            matInput
+            [type]="hidePasswordField ? 'password' : 'text'"
+            required
+            minlength="3"
+            maxlength="50"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hidePasswordField = !hidePasswordField"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hidePasswordField"
+          >
+            <mat-icon>
+              {{ hidePasswordField ? 'visibility_off' : 'visibility' }}
+            </mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+
+      <button
+        type="submit"
+        [ngStyle]="
+          !loginform.valid
+            ? { 'background-color': 'grey' }
+            : { 'background-color': 'dodgerblue' }
+        "
+        [disabled]="!loginform.valid"
+        mat-button
+        (click)="login()"
+      >
+        <span *ngIf="!loading">Log In</span>
+        <span *ngIf="loading">Loading...</span>
+      </button>
+      <div class="no-user" *ngIf="loginFailedMessage">User Doesn't Exist</div>
+    </form>
+  </div>
 </div>

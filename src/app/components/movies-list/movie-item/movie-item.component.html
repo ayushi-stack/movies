@@ -1,14 +1,14 @@
-<div class="grid-container" *ngIf="movie">
-  <div class="grid-item">
+<div mat-raised-button class="grid-container" *ngIf="movie">
+  <div (click)="openDialog()" class="grid-item">
     <div class="movie-container">
-      <div (click)="showModal(movie)"><img [src]="imageToShow" /></div>
+      <div><img class="img-avatar" [src]="imageToShow" /></div>
       <hr />
       <div class="movie title">{{ movie.title }}</div>
       <div class="movie-description" ellipsis>
         {{ movie.description }}
       </div>
 
-      <mat-chip-list aria-label="Fish selection">
+      <mat-chip-list aria-label="Genre selection">
         <mat-chip color="accent" *ngFor="let genre of movie.genres">
           {{ genre }}
         </mat-chip>

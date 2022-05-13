@@ -15,13 +15,17 @@ import {
   MAT_FORM_FIELD_DEFAULT_OPTIONS,
 } from '@angular/material/form-field'
 import { MatIconModule } from '@angular/material/icon'
+import { MatPaginatorModule } from '@angular/material/paginator'
 import { FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http'
 import { MoviesListComponent } from './components/movies-list/movies-list.component'
 import { MovieItemComponent } from './components/movies-list/movie-item/movie-item.component'
 import { MatChipsModule } from '@angular/material/chips'
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { NavBarComponent } from './components/nav-bar/nav-bar.component'
 import { FilterPipe } from './pipes/filter.pipe'
+import { MovieModalComponent } from './components/movie-modal/movie-modal.component'
+import { MatDialogModule } from '@angular/material/dialog'
 
 @NgModule({
   declarations: [
@@ -31,6 +35,7 @@ import { FilterPipe } from './pipes/filter.pipe'
     MovieItemComponent,
     NavBarComponent,
     FilterPipe,
+    MovieModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,12 +46,15 @@ import { FilterPipe } from './pipes/filter.pipe'
     MatSlideToggleModule,
     MatGridListModule,
     MatCardModule,
+    MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
     MatButtonModule,
     EllipsisModule,
     MatChipsModule,
+    MatProgressSpinnerModule,
+    MatPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

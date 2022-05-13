@@ -1,0 +1,13 @@
+<img [src]="data.img" />
+<hr />
+<h1 style="font-family: Raleway; font-weight: 600;" mat-dialog-title>
+  {{ data.title }}
+</h1>
+<div mat-dialog-content>
+  <p style="font-family: Raleway;">{{ data.description }}</p>
+</div>
+<mat-chip-list aria-label="Genre selection">
+  <mat-chip color="accent" *ngFor="let genre of data.genres">
+    {{ genre }}
+  </mat-chip>
+</mat-chip-list>

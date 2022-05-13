@@ -3,5 +3,40 @@
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto auto auto;
   padding: 5rem;
+  padding-bottom: 2rem;
   grid-gap: 5rem;
 }
+.mat-progress-spinner {
+  margin: 0 auto;
+}
+.icon-display {
+  display: block;
+  transform: scale(3);
+  margin: 0 auto;
+  color: #666;
+  margin-top: 5rem;
+  cursor: pointer;
+}
+::ng-deep .mat-paginator-page-size-label {
+  font-size: 1rem;
+  margin-right: 1rem;
+}
+::ng-deep .mat-paginator-range-label {
+  font-size: 0.9rem;
+}
+
+@media screen and (max-width: 420px) {
+  .grid-container {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 1rem;
+    grid-gap: 2rem;
+  }
+}
+
+// @media screen and (max-width: 780px) {
+//   .grid-container {
+//     grid-template-columns: repeat(2, 1fr);
+//     padding: 1rem;
+//     grid-gap: 2rem;
+//   }
+// }
