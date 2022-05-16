@@ -1,5 +1,4 @@
 .container {
-  height: 100%;
   display: flex;
 
   .mat-form-field {
@@ -89,5 +88,11 @@
     width: 75% !important;
     padding: 1rem !important;
     margin: 2rem;
+  }
+}
+
+.dark {
+  .pagetitle {
+    background-color: var(--dark-lavendar);
   }
 }

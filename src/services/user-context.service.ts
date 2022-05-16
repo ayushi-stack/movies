@@ -7,10 +7,15 @@ export class UserContextService {
   theme: string = 'light'
 
   setTheme(theme: string) {
+    localStorage.setItem('theme', theme)
     this.theme = theme
   }
 
   getTheme() {
-    return this.theme
+    if (localStorage.getItem('theme')) {
+      return localStorage.getItem('theme')
+    } else {
+      return this.theme
+    }
   }
 }

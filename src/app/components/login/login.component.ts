@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core'
 import { AuthService } from 'src/services/auth.service'
-import { Observable } from 'rxjs'
 import { Router } from '@angular/router'
 import { MessageService } from 'src/services/message.service'
+import { UserContextService } from 'src/services/user-context.service'
 
 @Component({
   selector: 'app-login',
@@ -16,14 +16,24 @@ export class LoginComponent implements OnInit {
   password: string = ''
   loading: boolean = false
   cols: number = 2
+  theme: string | null = ''
   constructor(
     private authService: AuthService,
     private router: Router,
     private messageService: MessageService,
+    private userService: UserContextService,
   ) {}
 
   ngOnInit(): void {
     this.cols = window.innerWidth <= 600 ? 1 : 2
+    this.theme = this.userService.getTheme()
+    this.messageService.getData().subscribe((response) => {
+      console.log('Theme', response)
+      if (response.type === 'theme') {
+        this.theme = this.userService.getTheme()
+        console.log('Theme', this.theme)
+      }
+    })
   }
 
   login() {

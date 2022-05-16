@@ -13,6 +13,7 @@ import { MessageService } from 'src/services/message.service'
 import { AuthService } from 'src/services/auth.service'
 import { Router } from '@angular/router'
 import { debounceTime, filter, fromEvent, map } from 'rxjs'
+import { MatSlideToggle } from '@angular/material/slide-toggle'
 
 @Component({
   selector: 'app-nav-bar',
@@ -22,21 +23,25 @@ import { debounceTime, filter, fromEvent, map } from 'rxjs'
 export class NavBarComponent implements OnInit {
   @ViewChild('searchInput', { static: false, read: ElementRef })
   searchInputElement: any
-  theme: string | undefined
+  @ViewChild('slideToggle', { static: true })
+  slideToggle!: MatSlideToggle
+  theme: string | null = ''
   token: string = ''
   @Output() onToggle: EventEmitter<any> = new EventEmitter()
   constructor(
     private userService: UserContextService,
     private messageService: MessageService,
     private authService: AuthService,
-    private router: Router,
     private cdREf: ChangeDetectorRef,
   ) {}
 
   ngOnInit(): void {
     this.theme = this.userService.getTheme()
-
     this.token = this.authService.getToken()
+    if (localStorage.getItem('theme') === 'dark') {
+      console.log('Dark')
+      this.slideToggle.toggle()
+    }
     this.messageService.getData().subscribe((response: any) => {
       if (response.type === 'login' || response.type === 'logout') {
         this.token = this.authService.getToken()
@@ -47,6 +52,12 @@ export class NavBarComponent implements OnInit {
   }
   toggleMode() {
     this.theme === 'light' ? this.setTheme('dark') : this.setTheme('light')
+    this.messageService.sendData({
+      type: 'theme',
+      data: {
+        theme: this.theme,
+      },
+    })
     this.onToggle.emit(this.theme)
   }
 

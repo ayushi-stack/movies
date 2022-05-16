@@ -8,6 +8,7 @@ import {
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog'
 import { MovieModalComponent } from '../../movie-modal/movie-modal.component'
+import { UserContextService } from 'src/services/user-context.service'
 
 @Component({
   selector: 'app-movie-item',
@@ -18,15 +19,23 @@ export class MovieItemComponent implements OnInit {
   @Input() movie: Movie | undefined
   modalMovie: Movie | undefined
   imageToShow: any
+  theme: string | null = ''
 
   constructor(
     private moviesService: MoviesService,
     private messageService: MessageService,
-    public dialog: MatDialog,
+    private dialog: MatDialog,
+    private userContextService: UserContextService,
   ) {}
 
   ngOnInit(): void {
     this.getAvatars()
+    this.theme = this.userContextService.getTheme()
+    this.messageService.getData().subscribe((response) => {
+      if (response.type === 'theme') {
+        this.theme = this.userContextService.getTheme()
+      }
+    })
   }
 
   getAvatars() {
@@ -55,6 +64,7 @@ export class MovieItemComponent implements OnInit {
         genres: this.movie?.genres,
       },
       backdropClass: 'modal-backdrop',
+      panelClass: this.theme ? this.theme : '',
     })
 
     dialogRef.afterClosed().subscribe((result) => {

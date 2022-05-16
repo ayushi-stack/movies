@@ -1,4 +1,4 @@
-<div mat-raised-button class="grid-container" *ngIf="movie">
+<div mat-raised-button class="grid-container" *ngIf="movie" [class]="theme">
   <div (click)="openDialog()" class="grid-item">
     <div class="movie-container">
       <div><img class="img-avatar" [src]="imageToShow" /></div>

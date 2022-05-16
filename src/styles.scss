@@ -38,10 +38,6 @@ $movies-dark-theme: mat.define-dark-theme(
   )
 );
 
-/* .bg-primary {
-  background-color: mat-color($movies-primary);
-} */
-
 .light-theme {
   @include mat.all-component-themes($movies-light-theme);
 }
@@ -55,7 +51,12 @@ $movies-dark-theme: mat.define-dark-theme(
 //@include mat.all-component-themes($movies-theme);
 
 /* You can add global styles to this file, and also import other style files */
-
+:root {
+  --dark-w1: #191919;
+  --dark-w2: #1b262c;
+  --dark-lavendar: #010038;
+  --dark-textColor: #ffffff;
+}
 html,
 body {
   height: 100%;

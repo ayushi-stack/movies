@@ -5,10 +5,16 @@
 }
 
 ::ng-deep .mat-dialog-container {
-  background: white !important;
-  padding: 2rem !important;
+  background: white;
+  padding: 2rem;
 }
 
+::ng-deep .dark {
+  .mat-dialog-container {
+    background: #2c394b;
+    color: white;
+  }
+}
 hr {
   margin-top: 1.5rem;
   margin-bottom: 1rem;
@@ -16,4 +22,9 @@ hr {
   height: 1px;
   width: 100%;
   background: #ccc;
+}
+
+.modal-image {
+  height: 20rem;
+  border-radius: 5px;
 }

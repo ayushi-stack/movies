@@ -2,9 +2,9 @@
   class="container"
   [ngClass]="theme === 'light' ? 'light-theme ' : 'dark-theme'"
 >
-  <div class="navbar bg-primary">
+  <div class="navbar" [ngClass]="theme === 'light' ? '' : 'dark'">
     <div>
-      <mat-slide-toggle (click)="toggleMode()"></mat-slide-toggle>
+      <mat-slide-toggle #slideToggle (click)="toggleMode()"></mat-slide-toggle>
     </div>
     <div style="display: flex;" *ngIf="token">
       <div class="search-container">

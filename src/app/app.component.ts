@@ -1,4 +1,5 @@
 import { Component } from '@angular/core'
+import { MessageService } from 'src/services/message.service'
 import { UserContextService } from 'src/services/user-context.service'
 
 @Component({
@@ -7,9 +8,12 @@ import { UserContextService } from 'src/services/user-context.service'
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  theme: string | undefined
+  theme: string | null
 
-  constructor(private userServiceService: UserContextService) {
+  constructor(
+    private userServiceService: UserContextService,
+    private messageService: MessageService,
+  ) {
     this.theme = this.userServiceService.getTheme()
   }
 

@@ -38,14 +38,22 @@ export class MoviesListComponent implements OnInit {
   getMovies() {
     this.loading = true
     this.error = false
-    this.moviesService.getMovies().subscribe((response) => {
-      if (response && response.data && response.data.length >= 0) {
-        this.movies = response.data
-        this.error = false
-      } else {
+    this.moviesService.getMovies().subscribe(
+      (response: any) => {
+        console.log('Movies', response)
+        if (response && response.data && response.data.length >= 0) {
+          this.movies = response.data
+          this.error = false
+        } else {
+          this.error = true
+        }
+        this.loading = false
+      },
+      (error: any) => {
+        console.log('Error', error)
+        this.loading = false
         this.error = true
-      }
-      this.loading = false
-    })
+      },
+    )
   }
 }

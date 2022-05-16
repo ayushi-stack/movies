@@ -2,3 +2,12 @@
   font-family: 'Raleway' !important;
   font-weight: 300;
 }
+
+.container {
+  min-height: 100%;
+}
+
+.dark-theme {
+  color: var(--dark-textColor);
+  background-color: var(--dark-w2);
+}
