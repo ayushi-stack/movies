@@ -20,45 +20,45 @@ interface MovieResponse {
 export class MoviesService {
   movies: Movie[] = [
     {
-      title: 'Jab tak hai jaan',
+      title: 'Spider Man',
       description:
-        'nice movie deer hsdcbamsdcbamsdcmsdbvsdfvbsfjvbskfdjvbsdkjv sdj bsdjvsdjb sdjb sjdbamscbamscb amscbamscbamcbasjcbasjcbahmks',
+        ' hsdcbamsdcbamsdcmsdbvsdfvbsfjvbskfdjvbsdkjv sdj bsdjvsdjb sdjb sjdbamscbamscb amscbamscbamcbasjcbasjcbahmks',
       genres: ['romantic', 'comedy'],
       uuid: 1,
     },
     {
-      title: 'Veer Zaara',
-      description: 'Cry movie deer',
+      title: 'The Exorcist',
+      description: 'hsdcbamsdcbamsdcmsdbvsdfvbsfjvbskfdjvbsdkjv',
       genres: ['romantic', 'comedy', 'horror'],
       uuid: 2,
     },
     {
-      title: 'Manmarziyan',
-      description: 'Cry movie deer',
+      title: 'Doctor Strange',
+      description: 'hsdcbamsdcbamsdcmsdbvsdfvbsfjvbskfdjvbsdkjv',
       genres: ['romantic', 'comedy', 'horror'],
       uuid: 3,
     },
     {
       title: 'La La Land',
-      description: 'Cry movie deer',
+      description: 'hsdcbamsdcbamsdcmsdbvsdfvbsfjvbskfdjvbsdkjv',
       genres: ['romantic', 'comedy', 'horror'],
       uuid: 4,
     },
     {
-      title: 'Veer Zaara',
-      description: 'Cry movie deer',
+      title: 'The Lord Of The Rings',
+      description: 'hsdcbamsdcbamsdcmsdbvsdfvbsfjvbskfdjvbsdkjvr',
       genres: ['romantic', 'comedy', 'horror'],
       uuid: 5,
     },
     {
-      title: 'Veer Zaara',
-      description: 'Cry movie deer',
+      title: 'Shawshank Redemption',
+      description: 'hsdcbamsdcbam nvh sdcmsdbvsdfvbsfjvbskfdjvbsdkjvr',
       genres: ['romantic', 'comedy', 'horror'],
       uuid: 6,
     },
     {
       title: 'Veer Zaara',
-      description: 'Cry movie deer',
+      description: 'hsdcbamsdcbamsdcmsdbvsdfvbsfjvbskfdjvbsdkjv eer',
       genres: ['romantic', 'comedy', 'horror'],
       uuid: 7,
     },
